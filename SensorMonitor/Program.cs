@@ -9,7 +9,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSignalR();
 
-// Use relative path for portability
 string sensorDataPath = Path.Combine(Directory.GetCurrentDirectory(), "sensor_data.txt");
 builder.Services.AddSingleton<SimulatedSerialPort>(sp => new SimulatedSerialPort(sensorDataPath));
 builder.Services.AddSingleton<ISensorSubject>(sp => sp.GetRequiredService<SimulatedSerialPort>());

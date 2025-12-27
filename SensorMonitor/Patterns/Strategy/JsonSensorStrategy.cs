@@ -22,7 +22,6 @@ namespace SensorMonitor.Patterns.Strategy
 
                 if (data == null) throw new Exception("Failed to deserialize JSON");
 
-                // Samsung specific logic 1920 -> 19.20 
                 double tempC = double.Parse(data.Temp) / 100.0;
 
                 return new SensorMeasurement

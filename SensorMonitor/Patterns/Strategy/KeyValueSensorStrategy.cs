@@ -22,7 +22,7 @@ namespace SensorMonitor.Patterns.Strategy
             // Check for temp
             if (!dict.ContainsKey("temp")) throw new Exception("Missing temp data");
 
-            double temp = double.Parse(dict["temp"], System.Globalization.CultureInfo.InvariantCulture);
+            double temp = (double.Parse(dict["temp"], System.Globalization.CultureInfo.InvariantCulture)/100);
             string manu = dict.ContainsKey("manu") ? dict["manu"] : (dict.ContainsKey("manufac") ? dict["manufac"] : "Unknown");
 
             // Check for serial
